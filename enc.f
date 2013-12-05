@@ -5,7 +5,8 @@ C     Input
       INTEGER*1 T(NT), K(NK), R(NT)
 C     Externals
 C     Local variables
-      INTEGER*1 H, I
+      INTEGER*1 H
+      INTEGER I
 C     ------------------------------------------------------------
 C     Initialize stuff
       H = 0
