@@ -60,7 +60,7 @@ Layer 1:
 This is the command line utility and main entry point level. This here receives switch from the user, reads the config file containing the permutation and MAGIC1 values, prompts the user for the secret, reads the input and writes the resulting output, all the while sanity-checking input parameters of any kind.
 
 Layer 2:  
-Encryption/Decreption functions. These take input and assume it's consistent and produce output
+Encryption/Decryption functions. These take input and assume it's consistent and produce output
 
 Layer 3:  
 Utilities used by the enc/dec functions. These are essentially very low level.
