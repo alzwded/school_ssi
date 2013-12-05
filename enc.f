@@ -26,8 +26,8 @@ C     Second mix
       END DO
 C     Third mix
       DO I = NK + 1, NT / 2
-        R(I) = IEOR(R(I), H + R(NT - I))
-        R(NT - I) = R(NT - I) + R(I)
+        R(I) = IEOR(R(I), H + R(NT - I + 1))
+        R(NT - I + 1) = R(NT - I + 1) + R(I)
       END DO
 C     Fourth mix
       DO I = 1, NT
