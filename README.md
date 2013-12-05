@@ -45,7 +45,7 @@ Keys
 Tentative notes
 ===============
 
-Right, I haven't studied enough to know what I'm talking about, so I'll through some buzzwords around:
+Right, I haven't studied enough to know what I'm talking about, so I'll throw some buzzwords around:
 * private key
 * autokey
 * linear transformations
