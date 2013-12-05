@@ -1,3 +1,5 @@
+#define TOALPHABET(C) ALPHA(IOR(C, IAND(IEOR(E, ISHFT(C, -2)), 3)) + 1)
+      
       SUBROUTINE TOB64(T, NT, T64)
       PARAMETER (MAGIC1=42)
 C     Input
@@ -14,16 +16,18 @@ C     Locals
      &76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 48,   &
      &49, 50, 51, 52, 53, 54, 55, 56, 57, 34, 39/
 C     ------------------------------------------------------------
+C     Initializations
       J = 1
       E = MAGIC1
+C     Perform
       DO I = 1, NT
         E = IEOR(E, INTLOG(IEOR(MAGIC1, E * MAGIC1)))
 C       High nibble
         C = ISHFT(IAND(240, T(I)), -2)
-        T64(J) = ALPHA(IOR(C, IAND(IEOR(E, ISHFT(C, -2)), 3)) + 1)
+        T64(J) = TOALPHABET(C)
 C       Low nibble
         C = ISHFT(IAND(15, T(I)), 2)
-        T64(J + 1) = ALPHA(IOR(C, IAND(IEOR(E, ISHFT(C, -2)), 3)) + 1)
+        T64(J + 1) = TOALPHABET(C)
 C       Next
         J = J + 2
       END DO

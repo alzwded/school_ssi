@@ -3,7 +3,7 @@ F77 = gfortran
 #CFLAGS = -c -O3 -std=c99
 #F77FLAGS = -c -O3
 CFLAGS = -c -g -std=c99
-F77FLAGS = -c -g
+F77FLAGS = -c -g -cpp
 LD = gcc
 LDOPTS = -lm
 
