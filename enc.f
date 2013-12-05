@@ -15,9 +15,7 @@ C     Initialize stuff
       END DO
       R(1:NT) = T(1:NT)
 C     First mix
-      DO I = 1, NK, 2
-        R(I) = R(I) + K(I)
-      END DO
+      R(1:NK:2) = R(1:NK:2) + K(1:NK:2)
       DO I = 2, NK, 2
         R(I) = IEOR(R(I), H + K(I))
       END DO

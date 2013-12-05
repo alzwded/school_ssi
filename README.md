@@ -11,9 +11,9 @@ Files
 |------|----------|------------|
 | `main.c` | C | main entry point |
 | `intlog.c` | C | `trunc(log(N) * 10)` used by the fort code |
-| `enc.f` | FORTRAN | encoding function |
-| `tob64.f` | FORTRAN | razzle-dazzle function |
-| `forfuncs.h` | C | header with the extern declarations of the fort procedure |
+| `enc.f` | FORTRAN | linear encoding function using the key and MAGIC1 |
+| `tob64.f` | FORTRAN | razzle-dazzle function, switching alphabet based on permutation |
+| `forfuncs.h` | C | header with the extern declarations of the fort procedures |
 | `Makefile` | Makefile | Makefile |
 
 TODO
@@ -30,5 +30,14 @@ TODO
 * backend
   - use external permutation on alphabet
   - MAGIC1 is not a PARAMETER, but an input parameter
-  - debase64.f
-  - dec.f
+  - debase64.f (i.e. decoder, pt1)
+  - dec.f (i.e. decoder, pt2)
+  - rndspc.f (i.e. (pseudo-)random spaces insertion, encoder, pt3)
+    + always after `/'./`, `s/("[^"]")/ \1 /`, then furthest away from nearest spaces based on whatever entropy could be gathered from the input
+
+Keys
+====
+
+1. secret
+1. permutation of alphabet
+1. MAGIC1 magic number
