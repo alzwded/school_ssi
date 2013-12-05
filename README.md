@@ -9,12 +9,12 @@ Files
 
 | File | Language | Descrption |
 |------|----------|------------|
-| main.c | C | main entry point |
-| intlog.c | C | trunc(log(N) * 10) used by the fort code |
-| enc.f | FORTRAN | encoding function |
-| tob64.f | FORTRAN | razzle-dazzle function |
-| forfuncs.h | C | header with the extern declarations of the fort procedure |
-| Makefile | Makefile | Makefile |
+| `main.c` | C | main entry point |
+| `intlog.c` | C | `trunc(log(N) * 10)` used by the fort code |
+| `enc.f` | FORTRAN | encoding function |
+| `tob64.f` | FORTRAN | razzle-dazzle function |
+| `forfuncs.h` | C | header with the extern declarations of the fort procedure |
+| `Makefile` | Makefile | Makefile |
 
 TODO
 ====
