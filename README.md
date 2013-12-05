@@ -1,6 +1,3 @@
-school_ssi
-==========
-
 School project for the security of information systems course
 
 It is the implementation of an encryption method.
@@ -22,7 +19,16 @@ Files
 TODO
 ====
 
-* debase64.f
-* dec.f
 * test bed
 * command line interface
+  - read key from STDIN
+  - read MAGIC1 from config file
+  - read permutation of alphabet from config file
+  - read input
+  - read encode-or-decode switch
+  - write output
+* backend
+  - use external permutation on alphabet
+  - MAGIC1 is not a PARAMETER, but an input parameter
+  - debase64.f
+  - dec.f
