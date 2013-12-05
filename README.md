@@ -33,7 +33,7 @@ TODO
   - debase64.f (i.e. decoder, pt1)
   - dec.f (i.e. decoder, pt2)
   - rndspc.f (i.e. (pseudo-)random spaces insertion, encoder, pt3)
-    + always after `/'./`, `s/("[^"]")/ \1 /`, then furthest away from nearest spaces based on whatever entropy could be gathered from the input
+    + no more spaces. Based on the key hash acting as a seed, insert random characters from the alphabet on positions matching a certain rule
 
 Keys
 ====
@@ -41,3 +41,14 @@ Keys
 1. secret
 1. permutation of alphabet
 1. MAGIC1 magic number
+
+Tentative notes
+===============
+
+Right, I haven't studied enough to know what I'm talking about, so I'll through some buzzwords around:
+* private key
+* autokey
+* linear transformations
+* permutation
+* alphabet
+* confusion
