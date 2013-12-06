@@ -1,14 +1,16 @@
-#define TOALPHABET(C) ALPHA(IOR(C, IAND(IEOR(E, ISHFT(C, -2)), 3)) + 1)
-      
       SUBROUTINE TOB64(T, NT, T64)
+      INTEGER MAGIC1
       PARAMETER (MAGIC1=42)
 C     Input
       INTEGER NT
       INTEGER*1 T(NT), T64(4 * NT)
 C     Externals
+      INTEGER*1 INTLOG
       EXTERNAL INTLOG
+      INTEGER*1 TOABET
+      EXTERNAL TOABET
 C     Locals
-      INTEGER I, J
+      INTEGER I, J, STATE
       INTEGER*1 C, E
       INTEGER ALPHA(64) /97, 98, 99, 100, 101, 102, 103, 104, 105,      &
      &106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118,  &
@@ -18,19 +20,31 @@ C     Locals
 C     ------------------------------------------------------------
 C     Initializations
       J = 1
-      E = MAGIC1
+      STATE = INTSED(MAGIC1)
 C     Perform
       DO I = 1, NT
-        E = IEOR(E, INTLOG(IEOR(MAGIC1, E * MAGIC1)))
+        E = INTLOG(STATE)
 C       High nibble
         C = ISHFT(IAND(240, T(I)), -2)
-        T64(J) = TOALPHABET(C)
+        T64(J) = ALPHA(TOABET(C, E))
 C       Low nibble
         C = ISHFT(IAND(15, T(I)), 2)
-        T64(J + 1) = TOALPHABET(C)
+        T64(J + 1) = ALPHA(TOABET(C, E))
 C       Next
         J = J + 2
       END DO
 C     ------------------------------------------------------------
       RETURN
       END
+
+      FUNCTION TOABET(C, E)
+      IMPLICIT NONE
+      INTEGER*1 TOABET
+C     Input
+      INTEGER*1 C, E
+C     ------------------------------------------------------------
+      TOABET = IAND(63,IEOR(E,IOR(C,IAND(3,ISHFT(C,-2)))))+1
+C     ------------------------------------------------------------
+      RETURN
+      END
+
