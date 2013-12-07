@@ -22,7 +22,7 @@ C     ------------------------------------------------------------
 C     Initializations
       STATE = H
       STATE = RNGSED(STATE)
-      MAXUSE = T(1) * (T(2) / 2)
+      MAXUSE = (MOD(T(1), 64) + 1) * ((MOD(T(2), 64) + 1) / 2)
       NTS = 0
 C     Perform
       DO WHILE (I.LE.NT)

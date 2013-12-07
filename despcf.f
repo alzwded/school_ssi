@@ -37,7 +37,7 @@ C     Perform
           T(NT) = TS(I)
         END IF
         IF (NT .EQ. 2) THEN
-          MAXUSE = T(1) * (T(2) / 2)
+          MAXUSE = (MOD(T(1), 64) + 1) * ((MOD(T(2), 64) + 1) / 2)
         END IF
       END DO
 C     ------------------------------------------------------------
