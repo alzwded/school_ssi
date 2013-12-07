@@ -29,5 +29,11 @@ extern void deb64_(
         char const* restrict T64,
         int const* restrict NT64,
         char* restrict T);
+extern void dec_(
+        char const* restrict T,
+        int const* restrict NT,
+        char const* restrict K,
+        int const* restrict NK,
+        char* restrict R);
 
 #endif

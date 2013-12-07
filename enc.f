@@ -5,7 +5,6 @@ C     Input
       INTEGER*1 T(NT), K(NK)
 C     Output
       INTEGER*1 R(NT)
-C     Externals
 C     Local variables
       INTEGER I
 C     Common
@@ -30,9 +29,9 @@ C     Third mix
         R(NT - I + 1) = R(NT - I + 1) + R(I)
       END DO
 C     Fourth mix
-      DO I = 1, NT
-        R(I) = R(MOD(I + R(I) * H, NT)) + R(I)
-      END DO
+C     DO I = 1, NT
+C       R(I) = R(MOD(I + R(I) * H, NT)) + R(I)
+C     END DO
 C     ------------------------------------------------------------
       RETURN
       END 

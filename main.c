@@ -50,5 +50,10 @@ int main(int argc, char* argv[])
     ndeq /= 2;
     deb64[ndeq] = '\0';
 
+    char decText[102];
+    dec_(deb64, &ndeq, testKey, &testKeyLen, decText);
+    decText[ndeq] = '\0';
+    printf("%s\n", decText);
+
     return 0;
 }

@@ -41,6 +41,7 @@ Dependencies
 TODO
 ====
 
+* mention MAGIC2
 * test bed
 * command line interface
   - read key from STDIN
