@@ -10,11 +10,9 @@ C     Externals
       INTEGER*1 FROMAB, RNGLOG
       INTEGER RNGSED 
       EXTERNAL FROMAB, RNGSED, RNGLOG
-      EXTERNAL RNGMAT
 C     Locals
       INTEGER I, USED
       INTEGER*1 E
-      INTEGER*1 A(NTS)
       INTEGER STATE, MAXUSE
 C     Common
       INTEGER*1 H
@@ -23,13 +21,13 @@ C     Common
 C     ------------------------------------------------------------
 C     Initializations
       STATE = H
-      CALL RNGMAT(STATE, NTS, A)
+      STATE = RNGSED(STATE)
       NT = 0
       USED = 0
       MAXUSE = 4096
 C     Perform
       DO I = 1, NTS
-        E = IAND(127, A(I))
+        E = IAND(127, RNGLOG(STATE))
         IF (MOD(E, 7).LE.1 .AND. USED.LT.MAXUSE) THEN
           USED = USED + 1
         ELSE
