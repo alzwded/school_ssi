@@ -1,9 +1,9 @@
 CC = gcc
 F77 = gfortran
-#CFLAGS = -c -O3 -std=c99 -I.
-#F77FLAGS = -c -O3 -std=gnu
-CFLAGS = -c -g -std=c99 -I.
-F77FLAGS = -c -g -std=gnu
+CFLAGS = -c -O3 -std=c99 -I.
+F77FLAGS = -c -O3 -std=gnu
+#CFLAGS = -c -g -std=c99 -I.
+#F77FLAGS = -c -g -std=gnu
 LD = gcc
 LDOPTS = -lm
 
@@ -19,6 +19,9 @@ OBJS = main.o
 ssi: $(COBJS) $(FOBJS) $(OBJS)
 	$(LD) -o ssi $(OBJS) $(FOBJS) $(COBJS) $(LDOPTS)
 
+debug: $(COBJS) $(FOBJS) debug.o
+	$(LD) -o debug debug.o $(FOBJS) $(COBJS) $(LDOPTS)
+
 %.o: %.f
 	$(F77) -o $@ $(F77FLAGS) $<
     
@@ -26,4 +29,4 @@ ssi: $(COBJS) $(FOBJS) $(OBJS)
 	$(CC) -o $@ $(CFLAGS) $<
 
 clean:
-	rm -f *.o ssi
+	rm -f *.o ssi debug
