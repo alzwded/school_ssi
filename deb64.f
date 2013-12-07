@@ -22,10 +22,13 @@ C     Initializations
       NT = NT64 / 2
       CALL RNGMAT(MAGIC1, NT, A)
 C     Perform
-      DO I = 1, NT
+      DO I = NT, 1, -1
         E = A(I)
 C       High nibble
         C = FROMAB(T64(2 * I - 1), E)
+        IF (I.GT.2) THEN
+          C = IAND(60, IEOR(C, T64(2 * I - 2)))
+        END IF
         C = ISHFT(C, 2)
 C       Low nibble
         C = IOR(C, ISHFT(FROMAB(T64(2 * I), E), -2))
