@@ -14,6 +14,11 @@ C     Common
 C     ------------------------------------------------------------
 C     Initialization
       R(1:NT) = T(1:NT)
+C     Fourth demix
+      DO I = 4 + ((NT-8) / (MOD(H, 4) + 1)) * (MOD(H, 4) + 1),          &
+     &    4, -(MOD(H, 4) + 1)
+        R(I) = IEOR(R(I), R(MOD(I + H, NT)))
+      END DO
 C     Third demix
       DO I = NK + 1, NT / 2
         R(NT - I + 1) = R(NT - I + 1) - R(I)

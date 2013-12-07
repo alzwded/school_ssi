@@ -28,9 +28,9 @@ C     Third mix
         R(NT - I + 1) = R(NT - I + 1) + R(I)
       END DO
 C     Fourth mix
-C     DO I = 1, NT
-C       R(I) = R(MOD(I + R(I) * H, NT)) + R(I)
-C     END DO
+      DO I = 4, NT - 4, MOD(H, 4) + 1
+        R(I) = IEOR(R(I), R(I - 1))
+      END DO
 C     ------------------------------------------------------------
       RETURN
       END 
