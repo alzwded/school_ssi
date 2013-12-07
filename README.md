@@ -4,6 +4,8 @@ It is the implementation of an encryption method.
 
 I have chosen to do the bulk of it in FORTRAN (gnu standard) with glue coming from C (c99 standard). Why? Because I can and I haven't coded in fort in a while. Also, the fixed width format is a wicked anachronism.
 
+This projects lives at http://github.com/alzwded/school_ssi
+
 Files
 =====
 
