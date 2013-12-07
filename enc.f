@@ -2,19 +2,17 @@
       PARAMETER (MAGIC2 = 3)
 C     Input
       INTEGER NT, NK
-      INTEGER*1 T(NT), K(NK), R(NT)
+      INTEGER*1 T(NT), K(NK)
+C     Output
+      INTEGER*1 R(NT)
 C     Externals
 C     Local variables
       INTEGER I
 C     Common
       INTEGER*1 H
-      COMMON /KEYSTF/ H
+      COMMON /KEY/ H
 C     ------------------------------------------------------------
 C     Initialize stuff
-      H = 0
-      DO I = 1, nk
-        H = H + K(I)
-      END DO
       R(1:NT) = T(1:NT)
 C     First mix
       R(1:NK:2) = R(1:NK:2) + K(1:NK:2)

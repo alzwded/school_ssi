@@ -1,15 +1,18 @@
       SUBROUTINE TOB64(T, NT, T64)
       IMPLICIT NONE
-      INTEGER MAGIC1
-      PARAMETER (MAGIC1=42)
 C     Input
       INTEGER NT
       INTEGER*1 T(NT)
 C     Output
       INTEGER*1 T64(2 * NT)
 C     Externals
-      INTEGER*1 RNGSED, RNGLOG, TOABET
+      INTEGER*1 RNGLOG, TOABET
+      INTEGER RNGSED
       EXTERNAL RNGSED, RNGLOG, TOABET
+C     Common
+      INTEGER*1 H
+      INTEGER MAGIC1
+      COMMON /KEY/ MAGIC1, H
 C     Locals
       INTEGER I, J, STATE
       INTEGER*1 C, E

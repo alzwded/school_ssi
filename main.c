@@ -15,6 +15,9 @@ int main(int argc, char* argv[])
     memset(test2, '\0', sizeof(char) * 100);
     strcpy(test2, "no no no");
 
+    static const int magic1 = 42;
+    keyhas_(testKey, &testKeyLen, &magic1);
+
     enc_(test1, &testLen, testKey, &testKeyLen, test2);
 
     char* rrr = (char*)malloc(sizeof(char) * 201);
@@ -28,7 +31,16 @@ int main(int argc, char* argv[])
     int nqweqwe;
     spacfr_(rrr, &testLen, qweqwe, &nqweqwe);
     qweqwe[nqweqwe] = '\0';
+    printf("\n");
     printf("%s\n", qweqwe);
+
+    keyhas_(testKey, &testKeyLen, &magic1);
+    char deqweqwe[400];
+    int ndeq;
+    despcf_(qweqwe, &nqweqwe, deqweqwe, &ndeq);
+    deqweqwe[ndeq] = '\0';
+    printf("\n");
+    printf("%s\n", deqweqwe);
 
     return 0;
 }

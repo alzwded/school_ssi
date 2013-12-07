@@ -10,7 +10,7 @@ LDOPTS = -lm
 # C obj's the fortran obj's depend on
 COBJS = rng.o
 # main fortran backend obj's
-FOBJS = enc.o tob64.o spacfr.o alphbt.o 
+FOBJS = enc.o tob64.o spacfr.o alphbt.o despcf.o rngmat.o keyhas.o
 # main user-facing obj's
 OBJS = main.o
 # ...and dependencies are accounted for!

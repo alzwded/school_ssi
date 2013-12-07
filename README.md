@@ -15,6 +15,9 @@ Files
 | `tob64.f` | FORTRAN | razzle-dazzle function, switching alphabet based on permutation |
 | `spacfr.f` | FORTRAN | random character inserter |
 | `alphbt.f` | FORTRAN | alphabet coding functions and data |
+| `keyhas.f` | FORTRAN | key hash function and data |
+| `despcf.f` | FORTRAN | remove randomly inserted characters |
+| `rngmat.f` | FORTRAN | generate a vector of random numbers and data |
 | `rng.c` | C | RNG used by the fort code |
 | `Makefile` | Makefile | Makefile |
 
@@ -24,11 +27,14 @@ Dependencies
 | File | Deps |
 |------|------|
 | `rng.c` | - |
-| `enc.f` | - |
+| `keyhas.f` | - |
 | `alphbt.f` | - |
-| `tob64.f` | `alphbt.f`, `rng.c` |
-| `spacfr.f` | `alphbt.f`, `rng.c` |
-| `main.c` | `enc.f`, `tob64.f`, `spacfr.f` |
+| `rngmat.f` | `rng.c` |
+| `enc.f` | `keyhas.f` |
+| `tob64.f` | `alphbt.f`, `rng.c`, `keyhas.f` |
+| `spacfr.f` | `alphbt.f`, `rng.c` , `keyhas.f` |
+| `despcf.f` | `alphbt.f`, `rngmat.f` `keyhas.f` |
+| `main.c` | `enc.f`, `tob64.f`, `spacfr.f`, `despcf.f` |
 
 TODO
 ====
@@ -44,7 +50,7 @@ TODO
 * backend
   - use external permutation on alphabet
   - MAGIC1 is not a PARAMETER, but an input parameter
-  - despcf.f (i.e. decoder, pt1)
+  - ~~despcf.f (i.e. decoder, pt1)~~
   - deb64.f (i.e. decoder, pt2)
   - dec.f (i.e. decoder, pt3)
   - ~~rndspc.f (i.e. (pseudo-)random spaces insertion, encoder, pt3)~~
