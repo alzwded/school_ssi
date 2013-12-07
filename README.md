@@ -36,7 +36,7 @@ Dependencies
 | `deb64.f` | `alphbt.f` `rngmat.f` `keyhas.f` |
 | `spacfr.f` | `alphbt.f` `rng.c`  `keyhas.f` |
 | `despcf.f` | `alphbt.f` `rngmat.f` `keyhas.f` |
-| `main.c` | `enc.f` `tob64.f` `spacfr.f` `despcf.f` |
+| `main.c` | `enc.f` `tob64.f` `spacfr.f` `despcf.f` `deb64.f` |
 
 TODO
 ====
