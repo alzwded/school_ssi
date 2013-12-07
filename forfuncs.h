@@ -11,5 +11,10 @@ extern void tob64_(
         char* restrict T,
         int* restrict NT,
         char* restrict T64);
+extern void spacfr_(
+        char* restrict T,
+        int* restrict NT,
+        char* restrict TS,
+        int* restrict NTS);
 
 #endif

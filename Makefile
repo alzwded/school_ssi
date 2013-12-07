@@ -8,9 +8,9 @@ LD = gcc
 LDOPTS = -lm
 
 # C obj's the fortran obj's depend on
-COBJS = intlog.o
+COBJS = rng.o
 # main fortran backend obj's
-FOBJS = enc.o tob64.o
+FOBJS = enc.o tob64.o spacfr.o alphbt.o 
 # main user-facing obj's
 OBJS = main.o
 # ...and dependencies are accounted for!

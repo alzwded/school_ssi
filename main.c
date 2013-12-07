@@ -21,8 +21,14 @@ int main(int argc, char* argv[])
     memset(rrr, '\0', sizeof(char) * 200);
     tob64_(test2, &testLen, rrr);
     rrr[200] = '\0';
-
     printf("%s\n", rrr);
+    testLen *= 2;
+
+    char qweqwe[400];
+    int nqweqwe;
+    spacfr_(rrr, &testLen, qweqwe, &nqweqwe);
+    qweqwe[nqweqwe] = '\0';
+    printf("%s\n", qweqwe);
 
     return 0;
 }
