@@ -25,7 +25,7 @@ C     Perform
         E = RNGLOG(STATE)
 C       High nibble
         C = ISHFT(IAND(240, T(I)), -2)
-        IF (J.GT.2) THEN
+        IF (J.GE.2) THEN
           C = IAND(IEOR(C, T64(J - 1)), 60)
         END IF
         T64(J) = TOABET(C, E)

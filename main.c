@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 {
     char clearText[102];
     memset(clearText, '\0', sizeof(char) * 100);
-    strcpy(clearText, "Some example text followed by many NULLs");
+    strcpy(clearText, "Some example text followed by many NULLs|abcdefghijklmnopqestuvwxyz");
     int nClearText = 100 * sizeof(char);
     char* testKey = "asdqwe";
     int testKeyLen = (int)strlen(testKey);
@@ -19,9 +19,16 @@ int main(int argc, char* argv[])
 
     printf("%s\n", clearText);
 
+    static const char perm[64] = {
+        61, 3, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 13, 15, 16, 19, 18, 17,
+        20, 21, 22, 23, 24, 25, 26, 27, 28, 31, 30, 29, 32, 33, 34, 35, 36,
+        39, 38, 37, 40, 41, 42, 43, 44, 45, 46, 49, 48, 47, 50, 53, 52, 51,
+        54, 55, 56, 57, 58, 59, 60, 64, 63, 62, 1,
+    };
     static const int magic1 = 42;
     static const int magic2 = 3;
     keyhas_(testKey, &testKeyLen, &magic1, &magic2);
+    setper_(perm);
 
     enc_(clearText, &nClearText, testKey, &testKeyLen, encText);
     encText[nClearText] = '\0';

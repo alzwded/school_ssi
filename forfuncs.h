@@ -1,11 +1,16 @@
 #ifndef ENC_H
 #define ENC_H
 
+// Initialization functions
 extern void keyhas_(
         char const* K,
         int const* NK,
         int const* MAGIC1,
         int const* MAGIC2);
+extern void setper_(
+        char const PERM[64]);
+
+// Encryption functions
 extern void enc_(
         char const* restrict T,
         int const* restrict NT,

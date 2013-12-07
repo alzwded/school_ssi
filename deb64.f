@@ -24,13 +24,13 @@ C     Initializations
 C     Perform
       DO I = NT, 1, -1
         E = A(I)
-C       Low nibble
+C       High nibble
         C = FROMAB(T64(2 * I - 1), E)
-        IF (I.GT.2) THEN
+        IF (I.GE.2) THEN
           C = IAND(60, IEOR(C, T64(2 * I - 2)))
         END IF
         C = ISHFT(C, 2)
-C       High nibble
+C       Low nibble
         C = IOR(C, ISHFT(FROMAB(T64(2 * I), E), -2))
 C       Save
         T(I) = C

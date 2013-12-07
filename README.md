@@ -38,7 +38,7 @@ Dependencies
 | `deb64.f` | `alphbt.f` `rngmat.f` `keyhas.f` |
 | `spacfr.f` | `alphbt.f` `rng.c`  `keyhas.f` |
 | `despcf.f` | `alphbt.f` `rng.c` `keyhas.f` |
-| `main.c` | `enc.f` `tob64.f` `spacfr.f` `despcf.f` `deb64.f` `dec.f` `keyhas.f` |
+| `main.c` | `enc.f` `tob64.f` `spacfr.f` `despcf.f` `deb64.f` `dec.f` `keyhas.f` `alphbt.f` |
 
 TODO
 ====
@@ -51,8 +51,8 @@ TODO
   - read input
   - read encode-or-decode switch
   - write output
-* backend
-  - use external permutation on alphabet
+* ~~backend~~
+  - ~~use external permutation on alphabet~~
   - ~~MAGIC1 is not a PARAMETER, but an input parameter~~
   - ~~despcf.f (i.e. decoder, pt1)~~
   - ~~deb64.f (i.e. decoder, pt2)~~
