@@ -3,44 +3,52 @@
 #include <string.h>
 #include <stdio.h>
 
+#define PRINT(X) printf(#X); fflush(stdout);
+
 int main(int argc, char* argv[])
 {
-    char* test1 = (char*)malloc(sizeof(char) * 100);
-    memset(test1, '\0', sizeof(char) * 100);
-    strcpy(test1, "asd");
-    int testLen = 100 * sizeof(char);
+    char clearText[102];
+    memset(clearText, '\0', sizeof(char) * 100);
+    strcpy(clearText, "asd");
+    int nClearText = 100 * sizeof(char);
     char* testKey = "asdqwe";
     int testKeyLen = (int)strlen(testKey);
-    char* test2 = (char*)malloc(sizeof(char) * 100);
-    memset(test2, '\0', sizeof(char) * 100);
-    strcpy(test2, "no no no");
+    char encText[102];
+    memset(encText, '\0', sizeof(char) * 100);
+    strcpy(encText, "no no no");
 
     static const int magic1 = 42;
     keyhas_(testKey, &testKeyLen, &magic1);
 
-    enc_(test1, &testLen, testKey, &testKeyLen, test2);
+    enc_(clearText, &nClearText, testKey, &testKeyLen, encText);
+    encText[nClearText] = '\0';
 
-    char* rrr = (char*)malloc(sizeof(char) * 201);
-    memset(rrr, '\0', sizeof(char) * 200);
-    tob64_(test2, &testLen, rrr);
-    rrr[200] = '\0';
-    printf("%s\n", rrr);
-    testLen *= 2;
+    char tob64[400];
+    memset(tob64, '\0', sizeof(char) * nClearText);
+    tob64_(encText, &nClearText, tob64);
+    tob64[2 * nClearText] = '\0';
+    printf("%s\n", tob64);
+    nClearText *= 2;
 
-    char qweqwe[400];
-    int nqweqwe;
-    spacfr_(rrr, &testLen, qweqwe, &nqweqwe);
-    qweqwe[nqweqwe] = '\0';
+    char randomized[400];
+    int nrandomized;
+    spacfr_(tob64, &nClearText, randomized, &nrandomized);
+    randomized[nrandomized] = '\0';
     printf("\n");
-    printf("%s\n", qweqwe);
+    printf("%s\n", randomized);
 
     keyhas_(testKey, &testKeyLen, &magic1);
-    char deqweqwe[400];
+    char derandomized[400];
     int ndeq;
-    despcf_(qweqwe, &nqweqwe, deqweqwe, &ndeq);
-    deqweqwe[ndeq] = '\0';
+    despcf_(randomized, &nrandomized, derandomized, &ndeq);
+    derandomized[ndeq] = '\0';
     printf("\n");
-    printf("%s\n", deqweqwe);
+    printf("%s\n", derandomized);
+
+    char deb64[102];
+    deb64_(derandomized, &ndeq, deb64);
+    ndeq /= 2;
+    deb64[ndeq] = '\0';
 
     return 0;
 }

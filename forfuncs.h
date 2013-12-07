@@ -25,5 +25,9 @@ extern void despcf_(
         int const* restrict NTS,
         char* restrict T,
         int* restrict NT);
+extern void deb64_(
+        char const* restrict T64,
+        int const* restrict NT64,
+        char* restrict T);
 
 #endif

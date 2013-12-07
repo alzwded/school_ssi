@@ -43,7 +43,3 @@ C     Perform
 C     ------------------------------------------------------------
       RETURN
       END
-
-      FUNCTION FROMAB()
-      RETURN
-      END

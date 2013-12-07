@@ -8,6 +8,30 @@
      &49, 50, 51, 52, 53, 54, 55, 56, 57, 34, 39/
       END
 
+      FUNCTION FROMAB(C, E)
+      IMPLICIT NONE
+      INTEGER*1 FROMAB
+C     Input
+      INTEGER*1 C, E
+C     Externals
+      EXTERNAL ALPHBT
+      INTEGER*1 ALPHA(64)
+      COMMON /ALPHA1/ ALPHA
+C     Local
+      INTEGER I
+      INTEGER*1 CH
+C     ------------------------------------------------------------
+      DO I = 1, 64
+        IF (ALPHA(I).EQ.C) THEN
+          GO TO 10
+        END IF
+      END DO
+   10 FROMAB =                                                          &
+     &  IAND(60, IEOR(E, I - 1))
+C     ------------------------------------------------------------
+      RETURN
+      END
+
       FUNCTION TOABET(C, E)
       IMPLICIT NONE
       INTEGER*1 TOABET

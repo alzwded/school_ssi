@@ -10,7 +10,8 @@ C     Local variables
       INTEGER I
 C     Common
       INTEGER*1 H
-      COMMON /KEY/ H
+      INTEGER MAGIC1
+      COMMON /KEY/ MAGIC1, H
 C     ------------------------------------------------------------
 C     Initialize stuff
       R(1:NT) = T(1:NT)

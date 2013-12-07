@@ -13,6 +13,7 @@ Files
 | `forfuncs.h` | C | header with the extern declarations of the fort procedures |
 | `enc.f` | FORTRAN | linear encoding function using the key and MAGIC1 |
 | `tob64.f` | FORTRAN | razzle-dazzle function, switching alphabet based on permutation |
+| `deb64.f` | FORTRAN | switch alphabet back based on permutation |
 | `spacfr.f` | FORTRAN | random character inserter |
 | `alphbt.f` | FORTRAN | alphabet coding functions and data |
 | `keyhas.f` | FORTRAN | key hash function and data |
@@ -32,6 +33,7 @@ Dependencies
 | `rngmat.f` | `rng.c` |
 | `enc.f` | `keyhas.f` |
 | `tob64.f` | `alphbt.f` `rng.c` `keyhas.f` |
+| `deb64.f` | `alphbt.f` `rngmat.f` `keyhas.f` |
 | `spacfr.f` | `alphbt.f` `rng.c`  `keyhas.f` |
 | `despcf.f` | `alphbt.f` `rngmat.f` `keyhas.f` |
 | `main.c` | `enc.f` `tob64.f` `spacfr.f` `despcf.f` |
@@ -51,7 +53,7 @@ TODO
   - use external permutation on alphabet
   - MAGIC1 is not a PARAMETER, but an input parameter
   - ~~despcf.f (i.e. decoder, pt1)~~
-  - deb64.f (i.e. decoder, pt2)
+  - ~~deb64.f (i.e. decoder, pt2)~~
   - dec.f (i.e. decoder, pt3)
   - ~~rndspc.f (i.e. (pseudo-)random spaces insertion, encoder, pt3)~~
     + ~~no more spaces. Based on the key hash acting as a seed, insert random characters from the alphabet on positions matching a certain rule~~
