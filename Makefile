@@ -29,4 +29,11 @@ debug: $(COBJS) $(FOBJS) debug.o
 	$(CC) -o $@ $(CFLAGS) $<
 
 clean:
-	rm -f *.o ssi debug
+	rm -f *.o ssi debug *.out *.ou2
+
+test: ssi
+	echo "asdqwe" | ./ssi e ssi.cfg test.in test.out
+	echo "asdqwe" | ./ssi d ssi.cfg test.out test.ou2
+	cat test.in
+	cat test.ou2    
+	diff -u test.in test.ou2

@@ -1,6 +1,8 @@
 #include "forfuncs.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 FILE* configFile, *inFile, *outFile;
 char permutation[64], key[256], inputText[10 << 20], outputText[10 << 20], buffer[10 << 20];
@@ -22,9 +24,10 @@ void encrypt() {
     ninputText = fread(inputText, sizeof(char), 10 << 20, inFile);
     enc_(inputText, &ninputText, key, &nkey, outputText);
     tob64_(outputText, &ninputText, inputText);
-    printf("%s\n\n", inputText);
+    ninputText *= 2;
+    printf("b64: %s\n\n", inputText);
     spacfr_(inputText, &ninputText, outputText, &noutputText);
-    printf("%s\n\n", outputText);
+    printf("spa: %s\n\n", outputText);
     fwrite(outputText, sizeof(char), noutputText, outFile);
 }
 
@@ -34,6 +37,7 @@ void decrypt() {
     despcf_(inputText, &ninputText, outputText, &noutputText);
     printf("%s\n\n", outputText);
     deb64_(outputText, &noutputText, inputText);
+    noutputText /= 2;
     dec_(inputText, &noutputText, key, &nkey, outputText);
     fwrite(outputText, sizeof(char), noutputText, outFile);
 }
