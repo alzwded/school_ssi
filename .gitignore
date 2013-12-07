@@ -21,3 +21,5 @@ ssi
 debug
 test
 *.log
+*.ou2
+*.xxd
