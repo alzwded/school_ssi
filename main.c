@@ -17,6 +17,8 @@ int main(int argc, char* argv[])
     memset(encText, '\0', sizeof(char) * 100);
     strcpy(encText, "no no no");
 
+    printf("%s\n", clearText);
+
     static const int magic1 = 42;
     static const int magic2 = 3;
     keyhas_(testKey, &testKeyLen, &magic1, &magic2);
@@ -28,6 +30,7 @@ int main(int argc, char* argv[])
     memset(tob64, '\0', sizeof(char) * nClearText);
     tob64_(encText, &nClearText, tob64);
     tob64[2 * nClearText] = '\0';
+    printf("\n");
     printf("%s\n", tob64);
     nClearText *= 2;
 
@@ -54,6 +57,7 @@ int main(int argc, char* argv[])
     char decText[102];
     dec_(deb64, &ndeq, testKey, &testKeyLen, decText);
     decText[ndeq] = '\0';
+    printf("\n");
     printf("%s\n", decText);
 
     return 0;
