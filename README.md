@@ -44,13 +44,13 @@ TODO
 ====
 
 * test bed
-* command line interface
-  - read key from STDIN
-  - read MAGIC1, MAGIC2 from config file
-  - read permutation of alphabet from config file
-  - read input
-  - read encode-or-decode switch
-  - write output
+* ~~command line interface~~
+  - ~~read key from STDIN~~
+  - ~~read MAGIC1, MAGIC2 from config file~~
+  - ~~read permutation of alphabet from config file~~
+  - ~~read input~~
+  - ~~read encode-or-decode switch~~
+  - ~~write output~~
 * ~~backend~~
   - ~~use external permutation on alphabet~~
   - ~~MAGIC1 is not a PARAMETER, but an input parameter~~
