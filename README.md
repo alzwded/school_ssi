@@ -83,6 +83,7 @@ Architecture
 ============
 
 The command line utility requires 4 parameters:
+
 1. `e` or `d` standing for encrypt or decrypt
 1. the path to a config file. This config file contains the MAGIC1 and MAGIC2 parameters as well as the 64 permutation applied on the alphabet. The values are integers separated by whitespace
 1. the path to the input file
