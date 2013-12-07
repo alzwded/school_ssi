@@ -10,11 +10,25 @@ Files
 | File | Language | Descrption |
 |------|----------|------------|
 | `main.c` | C | main entry point |
-| `intlog.c` | C | `trunc(log(N) * 10)` used by the fort code |
+| `forfuncs.h` | C | header with the extern declarations of the fort procedures |
 | `enc.f` | FORTRAN | linear encoding function using the key and MAGIC1 |
 | `tob64.f` | FORTRAN | razzle-dazzle function, switching alphabet based on permutation |
-| `forfuncs.h` | C | header with the extern declarations of the fort procedures |
+| `spacfr.f` | FORTRAN | random character inserter |
+| `alphbt.f` | FORTRAN | alphabet coding functions and data |
+| `rng.c` | C | RNG used by the fort code |
 | `Makefile` | Makefile | Makefile |
+
+Dependencies
+============
+
+| File | Deps |
+|------|------|
+| `rng.c` | - |
+| `enc.f` | - |
+| `alphbt.f` | - |
+| `tob64.f` | `alphbt.f`, `rng.c` |
+| `spacfr.f` | `alphbt.f`, `rng.c` |
+| `main.c` | `enc.f`, `tob64.f`, `spacfr.f` |
 
 TODO
 ====
@@ -30,10 +44,11 @@ TODO
 * backend
   - use external permutation on alphabet
   - MAGIC1 is not a PARAMETER, but an input parameter
-  - debase64.f (i.e. decoder, pt1)
-  - dec.f (i.e. decoder, pt2)
-  - rndspc.f (i.e. (pseudo-)random spaces insertion, encoder, pt3)
-    + no more spaces. Based on the key hash acting as a seed, insert random characters from the alphabet on positions matching a certain rule
+  - despcf.f (i.e. decoder, pt1)
+  - deb64.f (i.e. decoder, pt2)
+  - dec.f (i.e. decoder, pt3)
+  - ~~rndspc.f (i.e. (pseudo-)random spaces insertion, encoder, pt3)~~
+    + ~~no more spaces. Based on the key hash acting as a seed, insert random characters from the alphabet on positions matching a certain rule~~
 
 Keys
 ====
