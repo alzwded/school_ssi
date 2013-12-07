@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 {
     char clearText[102];
     memset(clearText, '\0', sizeof(char) * 100);
-    strcpy(clearText, "asd");
+    strcpy(clearText, "Some example text followed by many NULLs");
     int nClearText = 100 * sizeof(char);
     char* testKey = "asdqwe";
     int testKeyLen = (int)strlen(testKey);
@@ -18,7 +18,8 @@ int main(int argc, char* argv[])
     strcpy(encText, "no no no");
 
     static const int magic1 = 42;
-    keyhas_(testKey, &testKeyLen, &magic1);
+    static const int magic2 = 3;
+    keyhas_(testKey, &testKeyLen, &magic1, &magic2);
 
     enc_(clearText, &nClearText, testKey, &testKeyLen, encText);
     encText[nClearText] = '\0';
@@ -37,7 +38,7 @@ int main(int argc, char* argv[])
     printf("\n");
     printf("%s\n", randomized);
 
-    keyhas_(testKey, &testKeyLen, &magic1);
+    keyhas_(testKey, &testKeyLen, &magic1, &magic2);
     char derandomized[400];
     int ndeq;
     despcf_(randomized, &nrandomized, derandomized, &ndeq);

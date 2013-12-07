@@ -4,7 +4,8 @@
 extern void keyhas_(
         char const* K,
         int const* NK,
-        int const* MAGIC1);
+        int const* MAGIC1,
+        int const* MAGIC2);
 extern void enc_(
         char const* restrict T,
         int const* restrict NT,

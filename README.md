@@ -47,17 +47,17 @@ TODO
 * test bed
 * command line interface
   - read key from STDIN
-  - read MAGIC1 from config file
+  - read MAGIC1, MAGIC2 from config file
   - read permutation of alphabet from config file
   - read input
   - read encode-or-decode switch
   - write output
 * backend
   - use external permutation on alphabet
-  - MAGIC1 is not a PARAMETER, but an input parameter
+  - ~~MAGIC1 is not a PARAMETER, but an input parameter~~
   - ~~despcf.f (i.e. decoder, pt1)~~
   - ~~deb64.f (i.e. decoder, pt2)~~
-  - dec.f (i.e. decoder, pt3)
+  - ~~dec.f (i.e. decoder, pt3)~~
   - ~~rndspc.f (i.e. (pseudo-)random spaces insertion, encoder, pt3)~~
     + ~~no more spaces. Based on the key hash acting as a seed, insert random characters from the alphabet on positions matching a certain rule~~
 
@@ -66,7 +66,7 @@ Keys
 
 1. secret
 1. permutation of alphabet
-1. MAGIC1 magic number
+1. MAGIC1 and MAGIC2 magic numbers
 
 Tentative notes
 ===============

@@ -1,5 +1,4 @@
       SUBROUTINE ENC(T, NT, K, NK, R)
-      PARAMETER (MAGIC2 = 3)
 C     Input
       INTEGER NT, NK
       INTEGER*1 T(NT), K(NK)
@@ -9,8 +8,8 @@ C     Local variables
       INTEGER I
 C     Common
       INTEGER*1 H
-      INTEGER MAGIC1
-      COMMON /KEY/ MAGIC1, H
+      INTEGER MAGIC1, MAGIC2
+      COMMON /KEY/ MAGIC1, MAGIC2, H
 C     ------------------------------------------------------------
 C     Initialize stuff
       R(1:NT) = T(1:NT)

@@ -18,8 +18,8 @@ C     Locals
       INTEGER STATE, MAXUSE
 C     Common
       INTEGER*1 H
-      INTEGER MAGIC1
-      COMMON /KEY/ MAGIC1, H
+      INTEGER MAGIC1, MAGIC2
+      COMMON /KEY/ MAGIC1, MAGIC2, H
 C     ------------------------------------------------------------
 C     Initializations
       STATE = H

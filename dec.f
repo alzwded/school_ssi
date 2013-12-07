@@ -1,7 +1,5 @@
       SUBROUTINE DEC(T, NT, K, NK, R)
       IMPLICIT NONE
-      INTEGER MAGIC2
-      PARAMETER (MAGIC2 = 3)
 C     Input
       INTEGER NT, NK
       INTEGER*1 T(NT), K(NK)
@@ -11,8 +9,8 @@ C     Local
       INTEGER I
 C     Common
       INTEGER*1 H
-      INTEGER MAGIC1
-      COMMON /KEY/ MAGIC1, H
+      INTEGER MAGIC1, MAGIC2
+      COMMON /KEY/ MAGIC1, MAGIC2, H
 C     ------------------------------------------------------------
 C     Initialization
       R(1:NT) = T(1:NT)
