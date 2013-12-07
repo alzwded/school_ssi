@@ -19,7 +19,8 @@ char rnglog_(int* n)
         int d;
     } un, doi;
     un.d = *n;
-    un.d = (19073 * un.d + 33068) + sin(un.e);
+    doi.e = sin(un.e);
+    un.d = (19073 * un.d + 33068) + doi.d;
     *n = un.d;
     return BYTE(&un.d);
 }

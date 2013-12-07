@@ -2,7 +2,7 @@ School project for the security of information systems course
 
 It is the implementation of an encryption method.
 
-I have chosen to do the bulk of it in FORTRAN (gnu standard) with glue coming from C (c99 standard). Why? Because I can and I haven't coded in fort in a while. Also, the fixed width format is an anachronism.
+I have chosen to do the bulk of it in FORTRAN (gnu standard) with glue coming from C (c99 standard). Why? Because I can and I haven't coded in fort in a while. Also, the fixed width format is a wicked anachronism.
 
 Files
 =====
@@ -11,7 +11,7 @@ Files
 |------|----------|------------|
 | `main.c` | C | main entry point |
 | `forfuncs.h` | C | header with the extern declarations of the fort procedures |
-| `enc.f` | FORTRAN | linear encoding function using the key and MAGIC1 |
+| `enc.f` | FORTRAN | linear encoding function using the key and magic numbers |
 | `dec.f` | FORTRAN | linear decoding function |
 | `tob64.f` | FORTRAN | razzle-dazzle function, switching alphabet based on permutation |
 | `deb64.f` | FORTRAN | switch alphabet back based on permutation |
@@ -43,7 +43,6 @@ Dependencies
 TODO
 ====
 
-* mention MAGIC2
 * test bed
 * command line interface
   - read key from STDIN
@@ -60,6 +59,7 @@ TODO
   - ~~dec.f (i.e. decoder, pt3)~~
   - ~~rndspc.f (i.e. (pseudo-)random spaces insertion, encoder, pt3)~~
     + ~~no more spaces. Based on the key hash acting as a seed, insert random characters from the alphabet on positions matching a certain rule~~
+* ~~mention MAGIC2~~
 
 Keys
 ====
