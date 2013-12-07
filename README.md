@@ -31,10 +31,10 @@ Dependencies
 | `alphbt.f` | - |
 | `rngmat.f` | `rng.c` |
 | `enc.f` | `keyhas.f` |
-| `tob64.f` | `alphbt.f`, `rng.c`, `keyhas.f` |
-| `spacfr.f` | `alphbt.f`, `rng.c` , `keyhas.f` |
-| `despcf.f` | `alphbt.f`, `rngmat.f` `keyhas.f` |
-| `main.c` | `enc.f`, `tob64.f`, `spacfr.f`, `despcf.f` |
+| `tob64.f` | `alphbt.f` `rng.c` `keyhas.f` |
+| `spacfr.f` | `alphbt.f` `rng.c`  `keyhas.f` |
+| `despcf.f` | `alphbt.f` `rngmat.f` `keyhas.f` |
+| `main.c` | `enc.f` `tob64.f` `spacfr.f` `despcf.f` |
 
 TODO
 ====
