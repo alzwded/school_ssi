@@ -12,6 +12,7 @@ Files
 | `main.c` | C | main entry point |
 | `forfuncs.h` | C | header with the extern declarations of the fort procedures |
 | `enc.f` | FORTRAN | linear encoding function using the key and MAGIC1 |
+| `dec.f` | FORTRAN | linear decoding function |
 | `tob64.f` | FORTRAN | razzle-dazzle function, switching alphabet based on permutation |
 | `deb64.f` | FORTRAN | switch alphabet back based on permutation |
 | `spacfr.f` | FORTRAN | random character inserter |
@@ -32,11 +33,12 @@ Dependencies
 | `alphbt.f` | - |
 | `rngmat.f` | `rng.c` |
 | `enc.f` | `keyhas.f` |
+| `dec.f` | `keyhas.f` |
 | `tob64.f` | `alphbt.f` `rng.c` `keyhas.f` |
 | `deb64.f` | `alphbt.f` `rngmat.f` `keyhas.f` |
 | `spacfr.f` | `alphbt.f` `rng.c`  `keyhas.f` |
 | `despcf.f` | `alphbt.f` `rngmat.f` `keyhas.f` |
-| `main.c` | `enc.f` `tob64.f` `spacfr.f` `despcf.f` `deb64.f` |
+| `main.c` | `enc.f` `tob64.f` `spacfr.f` `despcf.f` `deb64.f` `dec.f` |
 
 TODO
 ====
