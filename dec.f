@@ -11,15 +11,12 @@ C     Common
       INTEGER*1 H
       INTEGER MAGIC1, MAGIC2
       COMMON /KEY/ MAGIC1, MAGIC2, H
-      INTEGER TMP
 C     ------------------------------------------------------------
 C     Initialization
       R(1:NT) = T(1:NT)
 C     Fourth demix
-      DO I = 4, NT - 4, MOD(ABS(H), 4) + 1 
-        TMP = I
-      END DO
-      DO I = TMP, 4, -(MOD(ABS(H), 4) + 1)
+      DO I = NT - 4 - MOD((NT - 4) - 4, MOD(ABS(H), 4) + 1),            &
+     &    4, -(MOD(ABS(H), 4) + 1)
         R(I) = IEOR(R(I), R(I - 1))
       END DO
 C     Third demix
