@@ -6,6 +6,38 @@ I have chosen to do the bulk of it in FORTRAN (gnu standard) with glue coming fr
 
 This projects lives at http://github.com/alzwded/school_ssi
 
+Usage
+=====
+
+You can run it like this:
+```sh
+ssi e ssi.cfg myFile.in processedFile.out
+```
+
+The first parameter can be either `e` or `d`, standing for _ENCRYPT_ and _DECRIPT_, respectively.
+
+Your `ssi.cfg` should be a text file with white-space separated integers representing the following encryption parameters:
+* a magic number, any integer (e.g. 42)
+* a minimum secret password length (e.g. 6)
+* a permutation of size 64 (e.g. 1 3 2 4 5 ... 64)
+
+So, to summarize, ssi.cfg looks something like this:
+```
+42 6
+1 3 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40
+41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+61 62 63 64
+```
+
+You can probably guess what `myFile.in` and `processedFile.out` do.
+
+You are prompted for your secret password at runtime, on STDIN. So you can also do something like
+
+```sh
+cat secret | ssi d ssi.cfg received secret_document.doc
+```
+
 Files
 =====
 
