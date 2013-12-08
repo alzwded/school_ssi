@@ -1,3 +1,9 @@
+C Copyright (c) 2013, Vlad Meșco
+C All rights reserved.
+C See LICENSE for a license description
+
+C Routine used to decode a text, applying the four mix operations in 
+C reverse
       SUBROUTINE DEC(T, NT, K, NK, R)
       IMPLICIT NONE
 C     Input
@@ -13,8 +19,10 @@ C     Common
       COMMON /KEY/ MAGIC1, MAGIC2, H
 C     ------------------------------------------------------------
 C     Initialization
+C Make a copy of the text since we'll be working on it
       R(1:NT) = T(1:NT)
 C     Fourth demix
+C The original was 4:NT-4:MOD(ABS(H),4)+1, so do that in reverse
       DO I = NT - 4 - MOD((NT - 4) - 4, MOD(ABS(H), 4) + 1),            &
      &    4, -(MOD(ABS(H), 4) + 1)
         R(I) = IEOR(R(I), R(I - 1))
@@ -29,6 +37,7 @@ C     Second demix
         R(I) = R(I) - R(I - NK + MAGIC2) - R(I - NK)
       END DO
 C     First demix
+C Finally, remove the key from the text
       DO I = 2, NK, 2
         R(I) = IEOR(R(I), H + K(I))
       ENDDO

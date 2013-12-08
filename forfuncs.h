@@ -1,3 +1,7 @@
+// Copyright (c) 2013, Vlad Meșco
+// All rights reserved.
+// See LICENSE for a license description
+
 #ifndef ENC_H
 #define ENC_H
 

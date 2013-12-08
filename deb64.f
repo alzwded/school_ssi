@@ -1,3 +1,9 @@
+C Copyright (c) 2013, Vlad Meșco
+C All rights reserved.
+C See LICENSE for a license description
+
+C Routine used to decode a base64 encoded text back to the original
+C data
       SUBROUTINE DEB64(T64, NT64, T)
       IMPLICIT NONE
 C     Input
@@ -19,13 +25,18 @@ C     Locals
       INTEGER*1 A(NT64 / 2)
 C     ------------------------------------------------------------
 C     Initializations
+C The length of the original text is exactly half
       NT = NT64 / 2
+C Generate NT random numbers since we'll use those in reverse when
+C decoding
       CALL RNGMAT(MAGIC1, NT, A)
 C     Perform
       DO I = NT, 1, -1
         E = A(I)
+C Grab the high and low nibbles and OR them together again
 C       High nibble
         C = FROMAB(T64(2 * I - 1), E)
+C Also XOR some values with previous values
         IF (I.GE.2) THEN
           C = IAND(60, IEOR(C, T64(2 * I - 2)))
         END IF
