@@ -2,10 +2,8 @@ CC = gcc
 F77 = gfortran
 CFLAGS = -c -O3 -std=c99 -I. -Wno-unused-result
 F77FLAGS = -c -O3 -std=gnu
-#CFLAGS = -c -g -std=c99 -I.
-#F77FLAGS = -c -g -std=gnu
 LD = gcc
-LDOPTS = -lm
+LDOPTS = -lm -Wl,--strip-all
 
 # C obj's the fortran obj's depend on
 COBJS = rng.o
