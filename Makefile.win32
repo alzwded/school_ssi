@@ -1,0 +1,33 @@
+CC = i686-w64-mingw32-gcc
+F77 = i686-w64-mingw32-gfortran
+CFLAGS = -c -O3 -std=c99 -I. -Wno-unused-result
+F77FLAGS = -c -O3 -std=gnu
+LD = i686-w64-mingw32-gcc
+LDOPTS = -lm -Wl,--strip-all
+
+# C obj's the fortran obj's depend on
+COBJS = rng.obj
+# main fortran backend obj's
+FOBJS = enc.obj tob64.obj spacfr.obj alphbt.obj despcf.obj rngmat.obj \
+    keyhas.obj deb64.obj dec.obj
+# main user-facing obj's
+OBJS = main.obj
+# ...and dependencies are accounted for!
+
+ssi.exe: $(COBJS) $(FOBJS) $(OBJS)
+	$(LD) -o ssi.exe $(OBJS) $(FOBJS) $(COBJS) $(LDOPTS)
+
+debug: $(COBJS) $(FOBJS) debug.obj
+	$(LD) -o debug debug.obj $(FOBJS) $(COBJS) $(LDOPTS)
+
+%.obj: %.f
+	$(F77) -o $@ $(F77FLAGS) $<
+    
+%.obj: %.c
+	$(CC) -o $@ $(CFLAGS) $<
+
+clean:
+	rm -f *.obj ssi.exe debug *.obj *.out *.ou2 test.bat
+
+test.bat: ssi.exe
+	/bin/echo -e "@echo off\necho secret | ssi.exe e ssi.cfg %1 %~dp1intermed.out\necho secret | ssi.exe d ssi.cfg %~dp1intermed.out %~dp1decrypted.%~x1" > test.bat
