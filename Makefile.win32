@@ -30,4 +30,4 @@ clean:
 	rm -f *.obj ssi.exe debug *.obj *.out *.ou2 test.bat
 
 test.bat: ssi.exe
-	/bin/echo -e "@echo off\necho secret | ssi.exe e ssi.cfg %1 %~dp1intermed.out\necho secret | ssi.exe d ssi.cfg %~dp1intermed.out %~dp1decrypted.%~x1" > test.bat
+	/bin/echo -e "@echo off\necho secret | ssi.exe e ssi.cfg %1 %~dp1intermed.out\necho secret | ssi.exe d ssi.cfg %~dp1intermed.out %~dp1decrypted%~x1" > test.bat
