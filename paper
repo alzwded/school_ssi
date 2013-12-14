@@ -4,10 +4,11 @@ Sistem de criptare dezvoltat în cadrul cursului de SSI
 Descriere de ansamblu
 ---------------------
 
-Algoritmul conține trei componente:
+Sistemul conține 4 componente:
 1. Un bloc de transformări liniare modulo 256
 2. O codificare într-un alfabet similar base64
 3. O interclasare a textului cu o serie de caractere generate aleator
+4. Un generator de numere pseudo-aleatoare
 
 Algoritmul se folosește de un generator de numere pseudo-aleatoare intern. Parametrii sistemului de criptare sunt următorii:
 1. Textul de intrare
@@ -74,8 +75,8 @@ Această componentă interclasează textul de intrare cu un text cu caractere di
 1. Se inițializează motorul de numere aleatoare cu H
 2. Se calculează lungimea maximă a textului aleator MAX = (T(1) + 1) * ((T(2) + 1) / 2) (înmulțiri și împărțiri pe numere întregi reprezentate pe 8 biți). Nu vor fi folosite mai multe caractere aleatoare decât MAX.
 3. Pentru fiecare caracter din textul de intrare
-3.1 Se generează următorul număr pseudo-aleator E, din care sunt luați cei mai puțin semnificativi biți.
-3.2 Dacă E mod 7 <= 1, atunci se alipește ALPHBT(E + 1) luând cei mai puțin 6 semnificativi biți. Algoritmul continuă de la pasul 3.1
+3.1 Se generează următorul număr pseudo-aleator E, din care sunt luați cei mai puțin semnificativi 7 biți.
+3.2 Dacă E mod 7 <= 1, atunci se alipește ALPHBT((E mod 64) + 1). Algoritmul continuă de la pasul 3.1
 3.3 ...altfel, se alipește caracteul din textul de intrare la textul de ieșire și se continuă cu următorul caracter din textul de intrare.
 
 Generatorul de numere aleatoare
