@@ -16,6 +16,7 @@ C     Common
       INTEGER*1 H
       INTEGER MAGIC1, MAGIC2
       COMMON /KEY/ MAGIC1, MAGIC2, H
+      SAVE /KEY/
 C     ------------------------------------------------------------
 C     Initialize stuff
 C Copy the text since we'll be working directly on the output

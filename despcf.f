@@ -24,6 +24,7 @@ C     Common
       INTEGER*1 H
       INTEGER MAGIC1, MAGIC2
       COMMON /KEY/ MAGIC1, MAGIC2, H
+      SAVE /KEY/
       DATA USED, MAXUSE /0, 4096/
 C     ------------------------------------------------------------
 C     Initializations

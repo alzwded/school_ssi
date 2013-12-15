@@ -59,6 +59,7 @@ C     Externals
       EXTERNAL ALPHBT
       INTEGER*1 ALPHA(64), P(64), RALPHA(0:255)
       COMMON /ALPHA1/ ALPHA, P, RALPHA
+      SAVE /ALPHA1/
 C     Local
       INTEGER I
       LOGICAL TEST
@@ -86,6 +87,7 @@ C     Externals
       EXTERNAL ALPHBT
       INTEGER*1 ALPHA(64), PERM(64), RALPHA(0:255)
       COMMON /ALPHA1/ ALPHA, PERM, RALPHA
+      SAVE /ALPHA1/
 C     Local
       INTEGER I
       INTEGER*1 CH
@@ -109,6 +111,7 @@ C     Externals
       EXTERNAL ALPHBT
       INTEGER*1 ALPHA(64), PERM(64), RALPHA(0:255)
       COMMON /ALPHA1/ ALPHA, PERM, RALPHA
+      SAVE /ALPHA1/
 C     ------------------------------------------------------------
       TOABET = ALPHA(PERM(                                              &
      &    IAND(63, IEOR(E, IOR(C, IAND(3, ISHFT(C, -2))))) + 1))
@@ -126,6 +129,7 @@ C     Externals
       EXTERNAL ALPHBT
       INTEGER*1 ALPHA(64), PERM(64), RALPHA(0:255)
       COMMON /ALPHA1/ ALPHA, PERM, RALPHA
+      SAVE /ALPHA1/
 C     ------------------------------------------------------------
       TOALPH = ALPHA(MOD(E, 64) + 1)
 C     ------------------------------------------------------------

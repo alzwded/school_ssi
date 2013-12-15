@@ -18,6 +18,7 @@ C     Common
       INTEGER*1 H
       INTEGER MAGIC1, MAGIC2
       COMMON /KEY/ MAGIC1, MAGIC2, H
+      SAVE /KEY/
 C     Locals
       INTEGER I
       INTEGER NT

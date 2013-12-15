@@ -23,6 +23,7 @@ C     Common
       INTEGER*1 H
       INTEGER MAGIC1, MAGIC2
       COMMON /KEY/ MAGIC1, MAGIC2, H
+      SAVE /KEY/
 C     ------------------------------------------------------------
 C     Initializations
 C RNGSED expects a 32b integer, so temporarily store H in an INTEGER*4

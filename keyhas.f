@@ -14,6 +14,7 @@ C     Common
       INTEGER*1 H
       INTEGER MAG1, MAG2
       COMMON /KEY/ MAG1, MAG2, H
+      SAVE /KEY/
 C     Local
       INTEGER I
 C     ------------------------------------------------------------
